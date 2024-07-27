@@ -47,6 +47,7 @@
         html {
             scroll-behavior: smooth;
         }
+
         /* ::-webkit-scrollbar {
             display: none;
 
@@ -61,4 +62,23 @@
         /* * {
             -ms-overflow-style: none;
         } */
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #myBtn:hover {
+            background-color: #0a4569;
+        }
     </style>

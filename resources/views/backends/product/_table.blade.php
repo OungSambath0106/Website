@@ -23,11 +23,11 @@
                             alt="" class="profile_img_table">
 
                         <span class="ml-2">
-                            {{ $product->name }}
+                            {{ $product->name ?? 'Null' }}
                         </span>
                     </td>
-                    <td>{{ $product->category->name }}</td>
-                    <td>{{ $product->createdBy->name }}</td>
+                    <td>{{ $product->category->name ?? 'Null' }}</td>
+                    <td>{{ $product->createdBy->name ?? 'Null' }}</td>
                     {{-- <td>
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input switcher_input status" id="status_{{ $product->id }}" data-id="{{ $product->id }}" {{ $product->status == 1 ? 'checked' : '' }} name="status">

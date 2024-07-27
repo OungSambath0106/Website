@@ -418,6 +418,82 @@
                                     </div>
                                     <hr>
                                 </div>
+                                <div class="Banner">
+                                    <div class="d-flex">
+                                        <label for="" class="mr-2 mb-3">{{ __('Banner Setup') }}</label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="input-group mb-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="switch">
+                                                            <input type="checkbox" id="view_banner" name="permissions[]"
+                                                                @if (in_array('banner.view', $role_permissions)) checked @endif
+                                                                value="banner.view">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <label class="ml-2"
+                                                            for="view_banner">{{ __('View Banner') }}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="input-group mb-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="switch">
+                                                            <input type="checkbox" id="banner_create"
+                                                                name="permissions[]"
+                                                                @if (in_array('banner.create', $role_permissions)) checked @endif
+                                                                value="banner.create">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <label class="ml-2"
+                                                            for="banner_create">{{ __('Create Banner') }}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="input-group mb-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <!-- Rounded switch -->
+
+                                                        <label class="switch">
+                                                            <input type="checkbox" id="banner_edit" name="permissions[]"
+                                                                @if (in_array('banner.edit', $role_permissions)) checked @endif
+                                                                value="banner.edit">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <label class="ml-2"
+                                                            for="banner_edit">{{ __('Edit Banner') }}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <div class="input-group mb-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <label class="switch">
+                                                            <input type="checkbox" id="banner_delete"
+                                                                @if (in_array('banner.delete', $role_permissions)) checked @endif
+                                                                name="permissions[]" value="banner.delete">
+                                                            <span class="slider round"></span>
+                                                        </label>
+                                                        <label class="ml-2"
+                                                            for="banner_delete">{{ __('Delete Banner') }}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
                                 <div class="Setting">
                                     <div class="d-flex">
                                         <label for="" class="mr-2 mb-3">{{ __('Setting Setup') }}</label>

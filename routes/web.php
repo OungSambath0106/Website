@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backends\BannerController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backends\RoleController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Website\Auth\LoginController;
 use App\Http\Controllers\Backends\NavigationController;
 use App\Http\Controllers\Backends\FileManagerController;
 use App\Http\Controllers\Backends\BusinessSettingController;
+use App\Http\Controllers\Backends\PromotionController;
 use App\Http\Controllers\Website\HomeController as WebsiteHomeController;
 use App\Http\Controllers\Website\Auth\LoginController as WebsiteAuthLoginController;
 
@@ -105,6 +107,15 @@ Route::middleware(['auth', 'CheckUserLogin', 'SetSessionData'])->group(function 
         Route::resource('product-category', CategoryController::class);
 
         Route::resource('product', ProductController::class);
+
+        Route::resource('product-type', ProductController::class);
+
+        Route::get('banner/update_status', [BannerController::class, 'updateStatus'])->name('banner.update_status');
+        Route::resource('banner', BannerController::class);
+
+        Route::get('promotion/update_status', [PromotionController::class, 'updateStatus'])->name('promotion.update_status');
+        Route::resource('promotion', PromotionController::class);
+
         //header
         Route::get('/header', [DashboardController::class, 'header']);
     });

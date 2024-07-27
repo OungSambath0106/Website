@@ -1,4 +1,42 @@
-<footer class="main-footer text-start position-absolute bottom-auto w-100 px-5 pt-5 pb-3">
+<style>
+    .image-logo {
+        -webkit-animation: spin 4s linear infinite;
+        -moz-animation: spin 4s linear infinite;
+        animation: spin 4s linear infinite;
+    }
+
+    @-moz-keyframes spin {
+        100% {
+            -moz-transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    .icon a img {
+        transition: transform .2s;
+    }
+    .icon a img:hover {
+        -ms-transform: scale(1.25);
+        /* IE 9 */
+        -webkit-transform: scale(1.25);
+        /* Safari 3-8 */
+        transform: scale(1.25);
+    }
+</style>
+<footer class="main-footer text-start position-absolute bottom-auto w-100 px-5 pt-5 pb-3"
+    style="background-color: #0a4569">
     {{-- <strong>{{ session()->get('copy_right_text') }}</strong> --}}
     <div class="col-12">
         <div class="row  justify-content-center">
@@ -6,7 +44,7 @@
                 <div class="logo-container">
                     {{-- <img src="\website\upload\image 307.png" alt="not found" class="logo-footer"> --}}
                     <img src="@if (session()->has('app_icon') && file_exists('uploads/business_settings/' . session()->get('app_icon'))) {{ asset('uploads/business_settings/' . session()->get('app_icon')) }} @else {{ asset('uploads/image/default.png') }} @endif"
-                        alt="" width="60%" class="logo-footer">
+                        alt="" width="60%" class="logo-footer image-logo">
                 </div>
                 {{-- <strong>NETTECH SOLUTION STORE</strong> --}}
                 <strong>{{ session()->get('app_name') }}</strong>
@@ -36,8 +74,8 @@
             <div class="col-4 text-center">
                 <strong class="footer-title">{{ __('SPECIAL') }}</strong>
                 <div class="col-3 px-1 text-special text-start mt-2 mx-auto">
-                    <a href="">{{ __('Best selling') }}</a><br>
-                    <a href="">{{ __('Latest Product') }}</a>
+                    <a href="#latest-product">{{ __('Latest Product') }}</a><br>
+                    <a href="#best-selling">{{ __('Best selling') }}</a>
                 </div>
                 <div class="email">
                     <hr style="border: 1.2px solid;">
@@ -51,11 +89,13 @@
 
             <div class="col-3 text-center">
                 <strong class="footer-title">{{ __('Categories') }}</strong>
-                <div class="col-3 px-1 text-category text-start  mt-2 mx-auto">
-                    <a href="">{{ __('Desktop') }}</a><br>
-                    <a href="">{{ __('Laptop') }}</a><br>
-                    <a href="">{{ __('Accessories') }}</a><br>
-                    <a href="">{{ __('Services') }}</a>
+                <div class="col-3 px-1 text-category text-uppercase text-start  mt-2 mx-auto">
+                    <a href="#nike">{{ __('Nike') }}</a><br>
+                    <a href="#adidas">{{ __('Adidas') }}</a><br>
+                    <a href="#puma">{{ __('Puma') }}</a><br>
+                    <a href="#vans">{{ __('Vans') }}</a><br>
+                    <a href="#converse">{{ __('Converse') }}</a><br>
+                    <a href="#new-balance">{{ __('New Balance') }}</a>
                 </div>
                 <div class="address">
                     <div class="flex-row">
@@ -75,3 +115,60 @@
         </div>
     </div>
 </footer>
+<script>
+    document.querySelector('a[href="#latest-product"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#latest-product').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector('a[href="#best-selling"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#best-selling').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector('a[href="#nike"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#nike').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector('a[href="#adidas"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#adidas').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector('a[href="#puma"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#puma').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector('a[href="#vans"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#vans').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector('a[href="#converse"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#converse').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    document.querySelector('a[href="#new-balance"]').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#new-balance').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+</script>

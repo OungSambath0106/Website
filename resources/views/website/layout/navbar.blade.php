@@ -9,16 +9,17 @@
         </div>
         <div class="col-md-2 phone-container">
             <div class="form-group phone-number">
-                <i class="fa fa-phone fa-xl" style="color: #1077B8"></i>
-                <span class="" style="color: #1077B8;font-weight: 600;">+855 123 456 789</span>
+                <i class="fa fa-phone fa-xl" style="color: rgb(169, 45, 253)"></i>
+                <span class="text-gradient" style="font-weight: 600;">+855 123 456 789</span>
             </div>
         </div>
         <div class="col-md-5 search-container">
             <div class="row">
                 <form action="#">
                     <div class="input-group">
-                        <input type="search" id="searchs" class="form-control search" placeholder="Search product here">
-                        <div class="input-group-append btn-search">
+                        <input type="search" id="searchs" class="form-control search"
+                            placeholder="Search product here">
+                        <div class="input-group-append btn-search" style="background-color: #0a4569">
                             <button type="submit" class="btn">
                                 <i class="fa fa-search" style="color: #ffffff"></i>
                             </button>
@@ -27,9 +28,9 @@
                 </form>
             </div>
         </div>
-        <div class="checkin p-1 justify-content-center">
+        <div class="checkin p-1 justify-content-center" style="background-color: #0a4569">
             <a href="#">
-                <i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff"></i>
+                <i class="fa-solid fa-cart-shopping fa-lg" style="color: #ffffff;"></i>
                 <span class="badge bg-danger badge-small">0</span>
             </a>
         </div>
@@ -60,14 +61,14 @@
             </div>
         </div>
         @guest
-            <div class="btn-login">
+            <div class="btn-login border-gradient">
                 <a type="button" class="btn btn-login" data-toggle="modal" data-target="#exampleModal">
                     {{ __('Login') }}
                 </a>
             </div>
         @endguest
         @auth
-            <div class="dropdown dropdown-profile dropstart text-end btn-login ">
+            <div class="dropdown border-gradient dropdown-profile dropstart text-end btn-login ">
                 <a type="button" id="dropdown-toggle" class="btn dropdown-toggle" data-bs-toggle="dropdown">
                     {{ auth()->user()->name }}
                 </a>
@@ -85,32 +86,47 @@
         @endauth
         <style>
             .flag-country {
-                border: 2px solid #1077B8;
+                border: 2px solid transparent;
+                border-image: linear-gradient(76deg, rgba(169, 45, 253, 1) 0%, rgba(195, 34, 98, 1) 100%);
+                border-image-slice: 1;
                 color: #1077B8 !important;
                 padding-left: 10px !important;
                 padding-right: 10px !important;
+            }
+
+            .border-gradient {
+                border: 2px solid transparent;
+                border-image: linear-gradient(76deg, rgba(169, 45, 253, 1) 0%, rgba(195, 34, 98, 1) 100%);
+                border-image-slice: 1;
+            }
+
+            .text-gradient {
+                background: rgb(169, 45, 253);
+                background: linear-gradient(76deg, rgba(169, 45, 253, 1) 0%, rgba(195, 34, 98, 1) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         </style>
         {{-- <div class="nav-rightside justify-content-center col-md-10 d-flex gap-3 hidden" id="">
         </div> --}}
     </div>
-    <div id="sticky2" class="container-fluid sticky-top justify-content-around" style="background-color:#1077B8">
+    <div id="sticky2" class="container-fluid sticky-top justify-content-around" style="background-color:#0a4569">
         <div class="nav-rightside1 justify-content-center col-md-12 d-flex " id="navRightside">
             <div class="row">
                 {{-- <div class="col-md-12"> --}}
                 <ul class="nav justify-content-center gap-3">
                     <li class="nav-item p-1">
-                        <a class="nav-link active text-center fs-5" aria-current="page" href="{{route('home')}}"> <i
+                        <a class="nav-link active text-center" aria-current="page" href="{{ route('home') }}"> <i
                                 class="fas fa-home m-1"></i>{{ __('Home') }}</a>
                     </li>
                     @foreach ($cate as $item)
                         <li class="nav-item p-1">
-                            <a class="nav-link active text-center fs-5 " href="#">
-                                <img src="
+                            <a class="nav-link active text-center text-uppercase" href="#">
+                                {{-- <img src="
                             @if ($item->icon_images && file_exists(public_path('uploads/category/' . $item->icon_images))) {{ asset('uploads/category/' . $item->icon_images) }}
                             @else
                                 {{ asset('uploads/default.png') }} @endif"
-                                    alt="{{ $item->name }}">
+                                    alt="{{ $item->name }}"> --}}
                                 {{ $item->name }}
                             </a>
                         </li>
@@ -119,13 +135,13 @@
                     <li class="nav-item p-1">
                         <a class="nav-link active  text-center " href="#">
                             {{-- <i class="fa-solid fa-circle-exclamation px-2" style="color: #ffffff;"></i> --}}
-                            <img class="m-1 fs-5" src="\website\nav\about.png" alt="not found">{{ __('ABOUT US') }}
+                            {{ __('ABOUT US') }}
                         </a>
                     </li>
                     <li class="nav-item p-1">
                         <a class="nav-link active  text-center " href="#">
                             {{-- <i class="fa-solid fa-user-pen px-2" style="color: #ffffff;"></i> --}}
-                            <img class="m-1 fs-5" src="\website\nav\contact.png" alt="not found">{{ __('Contact Us') }}
+                            {{ __('Contact Us') }}
                         </a>
                     </li>
                 </ul>

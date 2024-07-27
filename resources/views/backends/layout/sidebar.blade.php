@@ -48,7 +48,7 @@
                 </li>
                 <li class="nav-item @if (request()->routeIs('admin.product*') || request()->routeIs('admin.product-category*')) menu-is-opening menu-open @endif">
                     <a href="#" class="nav-link @if (request()->routeIs('admin.product*') || request()->routeIs('admin.product-category*')) active @endif">
-                        <i class="nav-icon fa-solid fa-user-gear"></i>
+                        <i class="nav-icon fa-solid fa-boxes"></i>
                         <p>
                             {{ __('Product Management') }}
                             <i class="right fas fa-angle-left"></i>
@@ -60,7 +60,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('admin.product.index') }}"
                                     class="nav-link @if (request()->routeIs('admin.product*')) active @endif">
-                                    <i class="nav-icon fas fa-user-alt"></i>
+                                    <i class="nav-icon fas fa-dot-circle"></i>
                                     <p>
                                         {{ __('Product') }}
                                     </p>
@@ -71,11 +71,20 @@
                             <li class="nav-item">
                                 <a href="{{ route('admin.product-category.index') }}"
                                     class="nav-link @if (request()->routeIs('admin.product-category*')) active @endif">
-                                    <i class="nav-icon fa-solid fa-user-gear"></i>
+                                    <i class="nav-icon fa-solid fa-dot-circle"></i>
                                     <p>{{ __('Product Category') }}</p>
                                 </a>
                             </li>
                         @endif
+                        {{-- @if (auth()->user()->can('pro_type.view'))
+                            <li class="nav-item">
+                                <a href="{{ route('admin.product-type.index') }}"
+                                    class="nav-link @if (request()->routeIs('admin.product-type*')) active @endif">
+                                    <i class="nav-icon fa-solid fa-dot-circle"></i>
+                                    <p>{{ __('Product Type') }}</p>
+                                </a>
+                            </li>
+                        @endif --}}
 
                     </ul>
                 </li>
@@ -110,6 +119,24 @@
                         </li>
                         @endif
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.banner.index') }}"
+                        class="nav-link @if (request()->routeIs('admin.banner*')) active @endif">
+                        <i class="nav-icon fas fa-ad"></i>
+                        <p>
+                            {{ __('Banner') }}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.promotion.index') }}"
+                        class="nav-link @if (request()->routeIs('admin.promotion*')) active @endif">
+                        <i class="nav-icon fas fa-percentage"></i>
+                        <p>
+                            {{ __('Promotion') }}
+                        </p>
+                    </a>
                 </li>
                 @if (auth()->user()->can('setting.view'))
                     <li class="nav-item">

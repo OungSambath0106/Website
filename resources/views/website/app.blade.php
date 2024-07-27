@@ -21,6 +21,9 @@
         @include('website.layout.footer')
         <!-- End Footer -->
 
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <i class="fa-solid fa-angle-double-up fa-bounce"></i>
+        </button>
     </div>
     @include('website.layout.script')
 </body>
