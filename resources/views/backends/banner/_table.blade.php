@@ -14,12 +14,25 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                        <img src="
+                        {{-- <img src="
                         @if ($banner->banners && file_exists(public_path('uploads/banner/' . $banner->banners))) {{ asset('uploads/banner/' . $banner->banners) }}
                         @else
                             {{ asset('uploads/defualt.png') }} @endif
                         "
-                            alt="" class="profile_img_table" style="object-fit: cover; width: 50%; height: 5vh;">
+                            alt="" class="profile_img_table" style="object-fit: cover; width: 50%; height: 5vh;"> --}}
+                        <span>
+                            <a class="example-image-link" href="{{ asset('uploads/banner/' . $banner->banners) }}"
+                                data-lightbox="lightbox-' . $banner->id . '">
+                                <img src="
+                            @if ($banner->banners && file_exists(public_path('uploads/banner/' . $banner->banners))) {{ asset('uploads/banner/' . $banner->banners) }}
+                            @else
+                                {{ asset('uploads/defualt.png') }} @endif
+                                "
+                                    alt="" class="profile_img_table"
+                                    style="object-fit: cover; width: 50%; height: 5vh;">
+                            </a>
+                        </span>
+
                     </td>
                     <td>{{ $banner->createdBy->name }}</td>
                     <td>

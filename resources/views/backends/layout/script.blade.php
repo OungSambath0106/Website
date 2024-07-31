@@ -43,6 +43,8 @@
 <!-- AdminLTE for demo purposes -->
 {{-- <script src="{{ asset('backend/dist/js/demo.js') }}"></script> --}}
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -53,7 +55,7 @@
 <script src="{{ asset('backend/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <script src="{{ asset('backend/plugins/daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{ asset('js/compress.js') }}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 {{ Session::has('message') }}
 

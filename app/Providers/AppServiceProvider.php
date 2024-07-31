@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\BusinessSetting;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -52,6 +54,10 @@ class AppServiceProvider extends ServiceProvider
 
         Gate::before(function ($user, $ability) {
             return $user->hasRole('admin') ? true : null;
+        });
+
+        View::composer('*', function ($view) {
+            $view->with('cate', Category::all());
         });
     }
 }

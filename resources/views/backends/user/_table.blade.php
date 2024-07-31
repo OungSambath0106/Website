@@ -19,12 +19,31 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
-                        <img src="
-                        @if ($user->image && file_exists(public_path('uploads/users/' . $user->image))) {{ asset('uploads/users/' . $user->image) }}
-                        @else
-                            {{ asset('uploads/default-profile.png') }} @endif
-                        "
-                            alt="" class="profile_img_table img-circle">
+                        {{-- <span>
+                            <a class="example-image-link" href="{{ asset('uploads/users/' . $user->image) }}"
+                                data-lightbox="lightbox-' . $user->id . '">
+                                <img src="
+                            @if ($user->image && file_exists(public_path('uploads/users/' . $user->image))) {{ asset('uploads/users/' . $user->image) }}
+                            @else
+                                {{ asset('uploads/default-profile.png') }} @endif
+                                "
+                                    alt="" class="profile_img_table img-circle"
+                                    style="object-fit: cover; width: 50px; height: 50px;">
+                            </a>
+                        </span> --}}
+
+                        <span>
+                            @php
+                                $imagePath = $user->image && file_exists(public_path('uploads/users/' . $user->image)) 
+                                             ? asset('uploads/users/' . $user->image) 
+                                             : asset('uploads/default-profile.png');
+                            @endphp
+                        
+                            <a class="example-image-link" href="{{ $imagePath }}" data-lightbox="lightbox-{{ $user->id }}">
+                                <img src="{{ $imagePath }}" alt="" class="profile_img_table img-circle"
+                                     style="object-fit: cover; width: 50px; height: 50px;">
+                            </a>
+                        </span>                        
                     </td>
                     <td>{{ $user->first_name }}</td>
                     <td>{{ $user->last_name }}</td>

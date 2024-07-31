@@ -45,10 +45,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'username' => 'required',
-            'phone' => 'required',
+            'name' => 'required',
             'role' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:8',
@@ -67,8 +64,9 @@ class UserController extends Controller
             $user = new User;
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
-            $user->name = $request->username;
+            $user->name = $request->name;
             $user->phone = $request->phone;
+            $user->telegram = $request->telegram;
             $user->email = $request->email;
             $user->password = Hash::make($request['password']);
 
@@ -124,13 +122,9 @@ class UserController extends Controller
         // dd($request->all());
 
         $validator = Validator::make($request->all(), [
-            'first_name' => 'nullable',
-            'last_name' => 'nullable',
-            'username' => 'nullable',
-            'phone' => 'nullable',
+            'name' => 'require',
             'role' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            // 'email' => ['required', 'email', Rule::unique('users')->ignore($id)],
             'password' => 'nullable|min:8',
         ]);
 
@@ -148,7 +142,7 @@ class UserController extends Controller
             $user = User::findOrFail($id);
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
-            $user->name = $request->username;
+            $user->name = $request->name;
             $user->phone = $request->phone;
             $user->email = $request->email;
 

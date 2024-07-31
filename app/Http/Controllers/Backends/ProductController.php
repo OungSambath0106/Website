@@ -176,6 +176,8 @@ class ProductController extends Controller
         }
 
         try {
+
+            dd($request -> all());
             DB::beginTransaction();
 
             $product = Product::findOrFail($id);

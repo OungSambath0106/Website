@@ -58,7 +58,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    {{-- <div class="form-group col-md-6">
                                         <label class="required_lable">{{ __('User ID') }}</label>
                                         <input type="name" class="form-control @error('user_id') is-invalid @enderror"
                                             value="{{ old('user_id', $user->user_id) }}" name="user_id"
@@ -68,7 +68,7 @@
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                     {{-- <div class="form-group col-md-6">
                                             <label>{{__('Gender')}}</label>
                                             <select class="form-control" name="gender" >

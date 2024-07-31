@@ -344,7 +344,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Repeat item blocks as needed -->
                             </div>
                         </div>
                     </div>
@@ -922,8 +921,8 @@
                 var elements = document.querySelectorAll('.product-title');
                 elements.forEach(function(element) {
                     var text = element.textContent;
-                    if (text.length > 30) {
-                        element.textContent = text.slice(0, 28) + '...';
+                    if (text.length > 22) {
+                        element.textContent = text.slice(0, 22) + '...';
                     }
                 });
             });

@@ -26,10 +26,7 @@ class AccountController extends Controller
     public function profileUpdate($id, Request $request)
     {
         $rules = [
-            'first_name' => 'required',
-            'last_name' => 'required',
             'name' => 'required',
-            'phone' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'nullable|min:8|confirmed',
         ];
@@ -76,10 +73,7 @@ class AccountController extends Controller
     public function profileStore(Request $request)
     {
         $rules = [
-            'first_name'    => 'required',
-            'last_name'     => 'required',
             'name'          => 'required',
-            'phone'         => 'required',
             'email'         => 'required|unique:users',
             'password'      => 'nullable|min:8',
         ];

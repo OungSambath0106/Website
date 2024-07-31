@@ -73,7 +73,7 @@
 @endpush
 
 @section('content')
-    <div class="col-12 d-flex justify-content-center mt-2">
+    <div class="col-12 d-flex justify-content-center my-4">
         <div class="card" style="width: 80%">
             <div class="card-body px-5">
                 <form action="{{ route('account.profile.update', auth()->user()->id) }}" method="POST"

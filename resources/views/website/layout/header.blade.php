@@ -40,7 +40,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
 
-
     {{-- <script src="{{ asset('website/custom/js/app.js') }}"></script> --}}
     @stack('css')
     <style>
@@ -48,20 +47,19 @@
             scroll-behavior: smooth;
         }
 
-        /* ::-webkit-scrollbar {
+        ::-webkit-scrollbar {
             display: none;
+        }
 
-        } */
-
-        /* Hide scrollbar for Firefox */
-        /* * {
+        Hide scrollbar for Firefox {
             scrollbar-width: none;
-        } */
+        }
 
-        /* Hide scrollbar for Internet Explorer, Edge */
-        /* * {
+        Hide scrollbar for Internet Explorer,
+        Edge {
             -ms-overflow-style: none;
-        } */
+        }
+
         #myBtn {
             display: none;
             position: fixed;
@@ -74,11 +72,30 @@
             background-color: red;
             color: white;
             cursor: pointer;
-            padding: 15px;
+            padding: 15px 10px;
             border-radius: 4px;
+            animation: myfirst 5s linear 2s infinite alternate;
         }
 
-        #myBtn:hover {
-            background-color: #0a4569;
+        @keyframes myfirst {
+            0% {
+                background-color: red;
+            }
+
+            25% {
+                background-color: yellow;
+            }
+
+            50% {
+                background-color: blue;
+            }
+
+            75% {
+                background-color: green
+            }
+
+            100% {
+                background-color: red;
+            }
         }
     </style>

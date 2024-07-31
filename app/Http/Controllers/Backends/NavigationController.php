@@ -65,11 +65,7 @@ class NavigationController extends Controller
         // dd($request->all());
 
         $validator = Validator::make($request->all(), [
-            'first_name' => 'required',
-            'last_name' => 'required',
             'username' => 'required',
-            'user_id' => 'required|unique:users,user_id,' . $id,
-            'phone' => 'required',
             'role' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
             // 'email' => ['required', 'email', Rule::unique('users')->ignore($id)],
@@ -90,7 +86,6 @@ class NavigationController extends Controller
             $user->first_name = $request->first_name;
             $user->last_name = $request->last_name;
             $user->name = $request->username;
-            $user->user_id = $request->user_id;
             $user->phone = $request->phone;
             $user->telegram = $request->telegram ?? null;
             $user->email = $request->email;

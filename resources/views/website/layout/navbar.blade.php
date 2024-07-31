@@ -4,7 +4,7 @@
             <a class="navbar-brand" href="{{ route('home') }}">
                 {{-- <img src="\website\upload\weblogo.png" alt="not found" width="50%" class="logo"> --}}
                 <img src="@if (session()->has('app_logo') && file_exists('uploads/business_settings/' . session()->get('app_logo'))) {{ asset('uploads/business_settings/' . session()->get('app_logo')) }} @else {{ asset('uploads/image/default.png') }} @endif"
-                    alt="" width="60%" class="logo">
+                    alt="" width="60%" height="45vh" style="object-fit: contain" class="logo">
             </a>
         </div>
         <div class="col-md-2 phone-container">
@@ -122,11 +122,6 @@
                     @foreach ($cate as $item)
                         <li class="nav-item p-1">
                             <a class="nav-link active text-center text-uppercase" href="#">
-                                {{-- <img src="
-                            @if ($item->icon_images && file_exists(public_path('uploads/category/' . $item->icon_images))) {{ asset('uploads/category/' . $item->icon_images) }}
-                            @else
-                                {{ asset('uploads/default.png') }} @endif"
-                                    alt="{{ $item->name }}"> --}}
                                 {{ $item->name }}
                             </a>
                         </li>
@@ -153,20 +148,12 @@
     @include('website.layout.modal_login')
 </nav>
 @push('js')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#dropdown-toggle').on('click', function() {
                 $(this).next('.dropdown-menu').toggle();
             });
         });
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     const darkToggle = document.querySelector('.dark-toggle');
-        //     const body = document.body;
-
-        //     darkToggle.addEventListener('click', function() {
-        //         body.classList.toggle('dark');
-        //     });
-        // });
 
         window.onscroll = function() {
             myFunction()
@@ -181,5 +168,5 @@
                 navbar.classList.remove("sticky");
             }
         }
-    </script>
+    </script> --}}
 @endpush
